@@ -80,6 +80,7 @@
         <div class="alert alert-success text-center">
           <h4 class="mb-3">Voici votre bouton de préremplissage&nbsp;:</h4>
           <a href="#" class="btn btn-success btn-lg mb-3" id="linkResult" style="cursor: move;"></a>
+          <p id="debug"></p>
         </div>
         <div class="text-muted">
           <h4 class="mb-3">Comment utiliser ce bouton&nbsp;?</h4>
@@ -96,7 +97,7 @@
               <strong>Sur mobile</strong><br>
               (Un <em>peu</em> plus compliqué&nbsp;!)
               <ol>
-                <li>Appui long sur le bouton et « copier le lien de l’url».</li>
+                <li>Appui long sur le bouton et « copier le lien de l’url». (ou copiez le texte directement)</li>
                 <li>Ajoutez cette page en favoris</li>
                 <li>Modifiez le favori et remplacez l’url du favori par le lien copié.</li>
                 <li>Puis rendez-vous sur <a href="https://media.interieur.gouv.fr/deplacement-covid-19/">la page du gouvernement</a></li>
@@ -137,13 +138,18 @@
         document.title = 'Préremplissage ' + $firstName.val();
         $('.titleHelp').text(document.title);
         
+        const link = 'javascript:var d%3Ddocument%3Bfunction i(a)%7Breturn d.getElementById(a)%7Dfunction n(a)%7Breturn d.getElementsByName(a)%5B0%5D%7Dfunction e(a)%7Bt%3D%27change%27%3Bif(window.navigator.userAgent.match(/Trident%7CMSIEs/g)!%3Dnull)%7Bx%3Dd.createEvent(%27Events%27)%3Bx.initEvent(t,1,0)%3B%7Delse%7Bx%3Dnew Event(t)%3B%7Da.dispatchEvent(x)%3B%7Dfunction v(a,v)%7Ba.value%3Dv%3Be(a)%7Dv(i("field-firstname"),"' + $firstName.val() + '")%3Bv(i("field-lastname"),"' + $lastName.val() + '")%3Bv(i("field-birthday"),"' + $birthday.val() + '")%3Bv(i("field-placeofbirth"),"' + $birthplace.val() + '")%3Bv(i("field-address"),"' + $street.val() + '")%3Bv(i("field-city"),"' + $city.val() + '")%3Bv(i("field-zipcode"),"' + $zip.val() + '")%3Bvoid(0)%3B';
+        
         $('#linkResult')
-        .attr('href', 'javascript:var d%3Ddocument%3Bfunction i(a)%7Breturn d.getElementById(a)%7Dfunction n(a)%7Breturn d.getElementsByName(a)%5B0%5D%7Dfunction e(a)%7Bt%3D%27change%27%3Bif(window.navigator.userAgent.match(/Trident%7CMSIEs/g)!%3Dnull)%7Bx%3Dd.createEvent(%27Events%27)%3Bx.initEvent(t,1,0)%3B%7Delse%7Bx%3Dnew Event(t)%3B%7Da.dispatchEvent(x)%3B%7Dfunction v(a,v)%7Ba.value%3Dv%3Be(a)%7Dv(i("field-firstname"),"' + $firstName.val() + '")%3Bv(i("field-lastname"),"' + $lastName.val() + '")%3Bv(i("field-birthday"),"' + $birthday.val() + '")%3Bv(i("field-placeofbirth"),"' + $birthplace.val() + '")%3Bv(i("field-address"),"' + $street.val() + '")%3Bv(i("field-city"),"' + $city.val() + '")%3Bv(i("field-zipcode"),"' + $zip.val() + '")%3Bvoid(0)%3B')
+        .attr('href', link)
         .html('<i class="fa fa-star-o mr-2"></i> ' + document.title)
         .click(function(e){
           e.preventDefault();
           alert('Faites glisser ce bouton dans votre barre de favoris.')
         });
+
+        $('#debug')
+        .html(link)
         
         window.scrollTo(0,document.body.scrollHeight);
       });
