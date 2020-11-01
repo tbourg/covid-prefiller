@@ -10,22 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Primary Meta Tags -->
-    <title>Bouton pour préremplir le formulaire d’attestation de déplacement COVID19</title>
-    <meta name="title" content="Bouton pour préremplir le formulaire d’attestation de déplacement COVID19">
-    <meta name="description" content="Ajoutez un bouton à vos favoris pour préremplir automatiquement les informations du formulaire d’attestation de déplacement COVID19">
+    <title>Pré-remplissage du formulaire d’attestation de déplacement COVID19</title>
+    <meta name="title" content="Pré-remplissage du formulaire d’attestation de déplacement COVID19">
+    <meta name="description" content="Créaton d'un favori pour préremplir automatiquement les informations du formulaire d’attestation de déplacement COVID19">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ndavoust.github.io/covid-prefiller/">
-    <meta property="og:title" content="Bouton pour préremplir le formulaire d’attestation de déplacement COVID19">
-    <meta property="og:description" content="Ajoutez un bouton à vos favoris pour préremplir automatiquement les informations du formulaire d’attestation de déplacement COVID19">
+    <meta property="og:url" content="https://tbourg.github.io/covid-prefiller/">
+    <meta property="og:title" content="Pré-remplissage du formulaire d’attestation de déplacement COVID19">
+    <meta property="og:description" content="Créaton d'un favori pour préremplir automatiquement les informations du formulaire d’attestation de déplacement COVID19">
     <meta property="og:image" content="https://repository-images.githubusercontent.com/253495778/4501eb00-7828-11ea-95ae-912fbd585bae">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ndavoust.github.io/covid-prefiller/">
-    <meta property="twitter:title" content="Bouton pour préremplir le formulaire d’attestation de déplacement COVID19">
-    <meta property="twitter:description" content="Ajoutez un bouton à vos favoris pour préremplir automatiquement les informations du formulaire d’attestation de déplacement COVID19">
+    <meta property="twitter:url" content="https://tbourg.github.io/covid-prefiller/">
+    <meta property="twitter:title" content="Pré-remplissage du formulaire d’attestation de déplacement COVID19">
+    <meta property="twitter:description" content="Créaton d'un favori pour préremplir automatiquement les informations du formulaire d’attestation de déplacement COVID19">
     <meta property="twitter:image" content="https://repository-images.githubusercontent.com/253495778/4501eb00-7828-11ea-95ae-912fbd585bae">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -65,7 +65,7 @@
       <label for="street">Adresse</label>
       <input type="text" class="form-control mb-2" id="street" required="required">
 
-      <label for="street">Ville</label>
+      <label for="city">Ville</label>
       <input type="text" class="form-control mb-2" id="city" required="required">
 
       <label for="zip">Code postal</label>
@@ -100,7 +100,7 @@
                 <li>Ajoutez cette page en favoris</li>
                 <li>Modifiez le favori et remplacez l’url du favori par le lien copié.</li>
                 <li>Puis rendez-vous sur <a href="https://media.interieur.gouv.fr/deplacement-covid-19/">la page du gouvernement</a></li>
-                <li>Ecrivez les premières lettres du nom du favori (<span class="titleHelp"></span>)</li>
+                <li>Ecrivez les premières lettres du nom du favori (<span class="titleHelp"></span>) dans la barre d'adresse</li>
                 <li>Cliquez sur le favori dans les suggestions de la complétion automatique.</li>
               </ol>
             </div>
@@ -138,7 +138,7 @@
         $('.titleHelp').text(document.title);
         
         $('#linkResult')
-        .attr('href', 'javascript:var d%3Ddocument%3Bfunction i(a)%7Breturn d.getElementById(a)%7Dfunction n(a)%7Breturn d.getElementsByName(a)%5B0%5D%7Dfunction e(a)%7Bt%3D%27change%27%3Bif(window.navigator.userAgent.match(/Trident%7CMSIEs/g)!%3Dnull)%7Bx%3Dd.createEvent(%27Events%27)%3Bx.initEvent(t,1,0)%3B%7Delse%7Bx%3Dnew Event(t)%3B%7Da.dispatchEvent(x)%3B%7Dfunction v(a,v)%7Ba.value%3Dv%3Be(a)%7Dfunction c(a)%7Ba.checked%3Dtrue%3Be(a)%7Dv(i("field-firstname"),"' + $firstName.val() + '")%3Bv(i("field-lastname"),"' + $lastName.val() + '")%3Bv(i("field-birthday"),"' + $birthday.val() + '")%3Bv(i("field-lieunaissance"),"' + $birthplace.val() + '")%3Bv(i("field-address"),"' + $street.val() + '")%3Bv(i("field-town"),"' + $city.val() + '")%3Bv(i("field-zipcode"),"' + $zip.val() + '")%3Bvoid(0)%3B')
+        .attr('href', 'javascript:var d%3Ddocument%3Bfunction i(a)%7Breturn d.getElementById(a)%7Dfunction n(a)%7Breturn d.getElementsByName(a)%5B0%5D%7Dfunction e(a)%7Bt%3D%27change%27%3Bif(window.navigator.userAgent.match(/Trident%7CMSIEs/g)!%3Dnull)%7Bx%3Dd.createEvent(%27Events%27)%3Bx.initEvent(t,1,0)%3B%7Delse%7Bx%3Dnew Event(t)%3B%7Da.dispatchEvent(x)%3B%7Dfunction v(a,v)%7Ba.value%3Dv%3Be(a)%7Dv(i("field-firstname"),"' + $firstName.val() + '")%3Bv(i("field-lastname"),"' + $lastName.val() + '")%3Bv(i("field-birthday"),"' + $birthday.val() + '")%3Bv(i("field-placeofbirth"),"' + $birthplace.val() + '")%3Bv(i("field-address"),"' + $street.val() + '")%3Bv(i("field-city"),"' + $city.val() + '")%3Bv(i("field-zipcode"),"' + $zip.val() + '")%3Bvoid(0)%3B')
         .html('<i class="fa fa-star-o mr-2"></i> ' + document.title)
         .click(function(e){
           e.preventDefault();
